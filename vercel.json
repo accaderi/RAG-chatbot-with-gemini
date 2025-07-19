@@ -1,0 +1,9 @@
+{
+  "functions": {
+    "api/chat.js": {
+      "memory": 512,
+      "maxDuration": 20,
+      "includeFiles": "api/rag-data_*.json"
+    }
+  }
+}

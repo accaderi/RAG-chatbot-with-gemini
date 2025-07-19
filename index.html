@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Chatbot with Gemini</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="chat-container">
+        <div id="chat-header">
+            <h1 id="title-group">
+                <span id="header-icon"></span>
+                <span id="header-title">Chatbot Title</span>
+            </h1>
+            <button id="new-chat-button" title="Start a new conversation">New Chat</button>
+        </div>
+        <div id="chat-window">
+            <div id="chat-messages"></div>
+        </div>
+        <form id="chat-form">
+            <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off" required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "25_chatbot_for_website_with_gemini",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@langchain/core": "^0.3.62",
+    "@langchain/google-genai": "^0.2.14",
+    "@langchain/textsplitters": "^0.1.0",
+    "dotenv": "^17.2.0"
+  }
+}
