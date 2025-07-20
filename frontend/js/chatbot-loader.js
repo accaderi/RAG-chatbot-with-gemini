@@ -1,6 +1,6 @@
 (function() {
     // --- Configuration ---
-    const chatPageUrl = 'https://rag-chatbot-with-gemini.vercel.app'; 
+    const chatPageUrl = 'https://YOUR-VERCEL-DOMAIN'; 
     const cssFileUrl = '/css/chatbot-style.css'; 
 
     // --- Create and append CSS ---
