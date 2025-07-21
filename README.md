@@ -1,4 +1,16 @@
-# Accaderi Bilingual RAG Chatbot
+<h1 align="center"><strong>Build a Smart Bilingual AI Chatbot for Your Website<br>Google Gemini + RAG Tutorial</strong></h1>
+
+<p align="center">
+  <a href="https://youtu.be/zuBhmYDYfNc">
+    <img src="https://img.youtube.com/vi/zuBhmYDYfNc/0.jpg" alt="Youtube Video">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://youtu.be/zuBhmYDYfNc">Build a Smart Bilingual AI Chatbot for Your Website | Google Gemini + RAG Tutorial</a>
+</p>
+
+Learn how to build a smart, bilingual AI chatbot using Google Gemini and Retrieval-Augmented Generation (RAG).
 
 ## Introduction
 
@@ -7,6 +19,27 @@ This repository contains the complete source code for a sophisticated, bilingual
 The system is built with a modern, serverless architecture, using a static frontend for the chat interface and a Vercel serverless function for the secure backend logic. It leverages Google's Gemini family of models for its natural language understanding, generation, and translation capabilities.
 
 This document serves as a comprehensive guide to the project's architecture, features, and the process for setup and adaptation.
+
+## System Architecture
+
+The diagram below illustrates the high-level architecture of our bilingual RAG chatbot system, showing the interaction between the user's browser (public), the secure backend on Vercel, and the Google Cloud API services. The system processes queries through a sophisticated pipeline that handles both standalone questions and contextual follow-ups.
+<p align="center">
+  <img src="images/architecture-overview.jpeg" alt="Bilingual RAG Chatbot Architecture Overview" width="600">
+</p>
+
+### Detailed System Flow
+
+The diagram above provides a comprehensive view of the complete system workflow, from the initial user interaction on the main website through the one-time setup process, showing how Hungarian queries are processed through the RAG pipeline with multiple LLM integration points. 
+
+*Note: This diagram focuses on the overall system architecture and query processing flow. The detailed conversational memory pipeline (including follow-up question handling, query rewriting, and dynamic scoring) is illustrated separately in the flowchart in the **[Conversational Memory & The Advanced RAG Pipeline](#conversational-memory--the-advanced-rag-pipeline)** section below.*
+
+<p align="center">
+  <img src="images/detailed-system-flow.jpeg" alt="Detailed RAG System Flow with Hungarian Query Processing" width="800">
+</p>
+
+
+
+
 
 ## How It Works: The RAG Pipeline
 
@@ -40,9 +73,11 @@ The chatbot uses Google's `gemini-1.5-flash-latest` model for its primary genera
 
 ### 2. Conversational Memory
 
-The chatbot can understand follow-up questions (e.g., "tell me more about that").
-*   **How it Works:** The frontend (`script.js`) maintains the full conversation history in the browser's `sessionStorage`. For efficiency, only the last 6 turns of the conversation are sent to the backend with each new query.
+The chatbot can understand the context of a conversation and answer follow-up questions (e.g., if you ask about a project and then say, "tell me more about it," it knows what "it" refers to).
+
+*   **How it Works:** The frontend (`script.js`) maintains the full conversation history in the browser's `sessionStorage`, making it persistent through page reloads. For efficiency, only the last 6 turns of the conversation are sent to the backend with each new query.
 *   **Resetting:** A "New Chat" button in the UI allows the user to clear the session history and start a new, fresh conversation.
+*   **Learn More:** The chatbot uses a sophisticated "Smart Retrieval Pipeline" to handle follow-up questions and avoid repetition. You can read a detailed, step-by-step explanation of this process in the **[Conversational Memory & The Advanced RAG Pipeline](#conversational-memory--the-advanced-rag-pipeline)** section below.
 
 ### 3. Interactive Navigation Links
 
@@ -56,6 +91,112 @@ When the chatbot describes a project, it programmatically appends a helpful navi
 The chatbot is not a standalone application; it is deeply integrated with the main website's navigation and language systems.
 *   **`languageSwitcher.js`:** This script manages the bilingual functionality of the main website. It contains the master `translations` object and a global `getEffectiveAppLanguage()` function. Crucially, it dispatches a `languageChanged` custom event that the `chatbot-loader.js` listens for, ensuring the chatbot's language stays in sync with the main page.
 *   **`script_indexes.js`:** This is the main navigation script for the `architecture/` and `software/` sections of the website. It was modified to include a new priority-based `initializePage()` function. This function's primary job is to listen for a `chatbot_navigation_command` in `sessionStorage`, allowing the chatbot to programmatically control the main page's navigation and direct the user to specific project pages.
+
+## Conversational Memory & The Advanced RAG Pipeline
+
+The core of this chatbot's intelligence, especially its ability to handle conversations with a cost-effective LLM, lies in its sophisticated, multi-stage RAG (Retrieval-Augmented Generation) pipeline. This process is much more than a simple "search and answer" loop; it's an engineered system designed to create the best possible context *before* the final answer is generated.
+
+The primary goal of the pipeline is to overcome two main weaknesses of a simple RAG system:
+1.  **Vague Follow-up Questions:** A simple vector search for a query like "tell me more about it" will fail because it lacks context.
+2.  **Repetitive Answers:** A simple search might retrieve the same context chunks for a follow-up question, leading to the bot repeating itself.
+
+Our pipeline solves both of these problems programmatically. Let's trace the complete journey of a user's query.
+
+---
+
+### Scenario A: The Standalone Question
+
+This is the simplest path, for a clear, self-contained question.
+**Example Query:** `"Tell me about the Burj Khalifa project"`
+
+1.  **Request Arrives:** The backend (`api/chat.js`) receives the query with an empty `history` array.
+2.  **Initial Checks:** The system determines that this is not a follow-up question. The query is simplified to English keywords (if necessary).
+3.  **Intelligent Search (`findRelevantChunksImproved`):** A standard vector search is performed. With no history, no scoring penalties are applied, and the top 8 most relevant chunks are retrieved based purely on semantic similarity.
+4.  **Final Answer Generation:** The high-quality context is sent to the Gemini LLM, which generates a detailed, accurate answer.
+
+---
+
+### Scenario B: The Follow-up Question (The Advanced Path)
+
+This is where the true power of the pipeline is revealed.
+**Example Query:** `"tovabbi adatok errol"` (more data about this)
+**History:** `[{ role: 'user', content: 'Burj Khalifa' }, ...]`
+
+1.  **Request Arrives:** The backend receives the vague query and the rich `history` array.
+
+2.  **Step 1: The "Memory" Stage - Is this a Follow-up?**
+    *   The `isQueryAskingForSpecificDetails` function is called. It uses the LLM to quickly determine if the new query is a direct follow-up. In this case, it returns **`"yes"`**, activating the advanced logic.
+
+3.  **Step 2: Intelligent Retrieval - Rewriting the Query**
+    *   The `rewriteQueryForRetrieval` function is called. It uses the history to transform the vague query `"tovabbi adatok errol"` into a complete, standalone question like `"Tell me more about the Burj Khalifa project"`.
+    *   This standalone question is then passed to `simplifyQueryToEnglish`, resulting in a high-quality search query.
+
+4.  **Step 3: The Intelligent Search with Dynamic Scoring (`findRelevantChunksImproved`):**
+    *   The vector search is performed using the high-quality, rewritten query.
+    *   **Dynamic Scoring:** The function then checks if any of the retrieved chunks were already used in a previous assistant response from the `history`. If a chunk **was already used**, its similarity score is **penalized**, making it less likely to be chosen again.
+    *   **Result:** The top 8 chunks returned are now heavily biased towards providing **new and different information**, preventing the bot from repeating itself.
+
+5.  **Final Answer Generation:**
+    *   This new, non-repetitive context is combined with the full history and the user's original follow-up question. The LLM then generates a follow-up answer that provides additional details.
+
+This sophisticated pipeline is the key to the chatbot's advanced conversational abilities. Specifically, the query rewriting and dynamic down-scoring of used context allow a cost-effective LLM to maintain a coherent, intelligent, and non-repetitive conversation, making the chatbot more capable.
+
+```mermaid
+---
+title: Hungarian Query Processing Flow - RAG System with LLM Integration
+---
+flowchart TD
+    A[Hungarian User Query] --> B{Query Length > 3?}
+    B -->|No| C[Return Fallback Response]
+    B -->|Yes| D{Is Follow-up Query?}
+    
+    %% Initial Query Path
+    D -->|No - Initial Query| E[Load English RAG Data]
+    E --> F["🤖 LLM: Simplify Hungarian Query to English Keywords"]
+    F --> G[Find Relevant Chunks using Embedding Similarity]
+    G --> H[Build Context from Top 8 Chunks]
+    
+    %% Follow-up Query Path  
+    D -->|Yes - Follow-up| I[Load English RAG Data]
+    I --> J["🤖 LLM: Extract Topics from Conversation History"]
+    J --> K[Expand Context with Topic-Relevant Chunks]
+    K --> L["🤖 LLM: Rewrite Follow-up as Standalone Query"]
+    L --> M["🤖 LLM: Simplify Rewritten Query to English"]
+    M --> N["Find Relevant Chunks with Penalty for Previously Used Content"]
+    N --> O[Build Enhanced Context]
+    
+    %% Common Processing Path
+    H --> P["🤖 LLM: Check if Query is Follow-up for Detail Detection"]
+    O --> P
+    P --> Q["🤖 MAIN LLM: Generate Response using Hungarian Bilingual Prompt<br/>Process: Analyze in English → Apply Rules → Translate to Hungarian"]
+    Q --> R[Check for Project References in Response]
+    R --> S{Projects Found?}
+    S -->|Yes| T[Add Navigation Links with Hungarian Labels]
+    S -->|No| U[Return Response As-Is]
+    T --> V[Final Hungarian Response with Navigation]
+    U --> V
+    V --> W[Log Conversation & Send to User]
+    
+    %% Styling
+    classDef startEnd fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef process fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef decision fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef aiprocess fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    classDef followup fill:#fff8e1,stroke:#f57f17,stroke-width:2px
+    
+    class A,C,V,W startEnd
+    class E,F,G,H,I,J,K,L,M,N,O,R,T,U process
+    class B,D,S decision
+    class P,Q aiprocess
+    class J,K,L,M,N followup
+```
+
+### LLM Integration Points:
+- 🤖 **Query Translation**: Converts Hungarian queries to English keywords for better RAG retrieval
+- 🤖 **Topic Extraction**: Analyzes conversation history to understand context for follow-ups  
+- 🤖 **Query Rewriting**: Transforms follow-up questions into standalone queries
+- 🤖 **Follow-up Detection**: Determines if user is asking for additional details
+- 🤖 **Main Response Generation**: Bilingual processing with internal English analysis and Hungarian output
 
 ## Architectural Deep Dive: Language Handling
 
@@ -173,6 +314,10 @@ The project is organized into several key directories and files. The core logic 
 │       ├── chatbot-loader.js      # ✅ The script to load the chatbot widget on your main site.
 │       ├── languageSwitcher.js    # ✅ Manages language for the main site and communicates with the chatbot.
 │       └── script_indexes.js      # ✅ Manages navigation for the main site and executes chatbot commands.
+│
+├── images/
+│   ├── architecture-overview.png
+│   └── detailed-system-flow.png
 │
 ├── node_modules/             # Directory for all Node.js dependencies (auto-generated).
 ├── .env                      # Your local secret API key (NOT ON GitHub).
