@@ -681,7 +681,7 @@ visR is an R Shiny package created for interactive data visualization and basic 
 ---
 
 # Page: software/projects/archi/project1.html
-## Unreal Engine Quick Guide for Architects.
+## Unreal Engine Quick Guide for Architects. (Unreal for architects)
 
 ### Project Summary
 This project is a comprehensive guide for architects and visualization professionals on how to use Unreal Engine for architectural visualization. It covers essential topics from basic controls and material creation to advanced lighting (Lumen, Path Tracing) and performance optimization.
@@ -699,10 +699,10 @@ This project is a comprehensive guide for architects and visualization professio
 ---
 
 # Page: software/projects/archi/project2.html
-## Interactive Walkthrough Guide for ArchViz Projects in Unreal Engine.
+## Interactive Walkthrough Guide for ArchViz Projects in Unreal Engine. (Unreal Archviz)
 
 ### Project Summary
-This guide provides a step-by-step walkthrough for creating fully interactive architectural visualizations in Unreal Engine. It focuses on building responsive UI menus to control elements within the scene, such as switching materials, controlling lights, and displaying media.
+This guide provides a step-by-step walkthrough for creating fully interactive architectural visualizations in Unreal Engine (Unreal Archviz). It focuses on building responsive UI menus to control elements within the scene, such as switching materials, controlling lights, and displaying media.
 
 ### Q&A Snapshot
 *   **Q: What does this guide teach?**
@@ -929,3 +929,24 @@ This project is a Python Jupyter Notebook script designed to efficiently upload 
     A: Its features include memory-efficient unzipping, intelligent data type detection to optimize the database schema, chunked processing, and specialized enhancements for creating relationships and lookup tables for the IMDb dataset.
 
 © 2024 Accaderi. All rights reserved.
+
+---
+
+# Page: software/projects/ai/project9.html
+## RAG Chatbot with Gemini
+
+### Project Summary
+This project is the very chatbot application you are currently interacting with. It is a sophisticated, bilingual (English/Hungarian) assistant built with a RAG (Retrieval-Augmented Generation) architecture. Its purpose is to act as a knowledgeable team member, providing accurate, context-aware answers based on a curated knowledge base. The entire system is designed with a serverless backend for security and scalability, and a modern frontend for a seamless user experience.
+
+### Q&A Snapshot
+*   **Q: What is the RAG Chatbot with Gemini project?**
+    A: It is the application you are using right now. It's a custom-built AI assistant designed to provide information about our services and projects in a conversational way.
+
+*   **Q: What are the main features of this chatbot?**
+    A: The key features are its bilingual support (English/Hungarian), conversational memory to understand follow-up questions, an advanced RAG architecture to ensure factual answers, and interactive navigation buttons to guide users on the website.
+
+*   **Q: What technology does this chatbot use?**
+    A: The backend is a serverless Node.js function hosted on Vercel. It uses Google's Gemini models for language generation and understanding. The frontend is built with vanilla HTML, CSS, and JavaScript and runs securely in an iframe.
+
+*   **Q: How does its conversational memory work?**
+    A: It uses a "smart retrieval" pipeline. For follow-up questions, it first uses an LLM to rewrite the vague query (e.g., "tell me more") into a specific, standalone question based on the conversation history. This ensures the subsequent knowledge base search is highly accurate.
