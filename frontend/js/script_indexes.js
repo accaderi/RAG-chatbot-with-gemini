@@ -69,7 +69,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             { name: 'News Webpage', page: 'projects/ai/project5.html' },
                             { name: 'RAG_64', page: 'projects/ai/project6.html' },
                             { name: 'Bookmark Genie', page: 'projects/ai/project7.html' },
-                            { name: 'visR', page: 'projects/ai/project8.html' } ] },
+                            { name: 'visR', page: 'projects/ai/project8.html' },
+                            { name: 'RAG Chatbot with Gemini', page: 'projects/ai/project9.html' } ] },
                     'Archi': { page: 'coding/archi.html', projects: [
                             { name: 'Unreal - Guide for Architects', page: 'projects/archi/project1.html' },
                             { name: 'Unreal - Guide for Archviz', page: 'projects/archi/project2.html' },

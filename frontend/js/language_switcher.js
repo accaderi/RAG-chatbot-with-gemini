@@ -40,6 +40,7 @@ const translations = {
         'RAG_64': 'RAG_64',
         'Bookmark Genie': 'Könyvjelző Dzsinn',
         'visR': 'visR',
+        'RAG Chatbot with Gemini': 'RAG Chatbot Geminivel',
         'Archi': 'Építész Szoftver',
         'Unreal - Guide for Architects': 'Unreal - Útmutató Építészeknek',
         'Unreal - Guide for Archviz': 'Unreal - Útmutató Látványtervezőknek',
