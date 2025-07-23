@@ -42,7 +42,11 @@ for (const sectionKey in menuStructure) {
                 let simplifiedKey;
                 if (projectName === 'Hunguest BÁL Resort') {
                     simplifiedKey = 'bál resort';
-                } else if (sectionKey === 'software') {
+                } else if (projectName === 'Unreal - Guide for Architects') {
+                    simplifiedKey = 'unreal architects';
+                } else if (projectName === 'Unreal - Guide for Archviz') {
+                    simplifiedKey = 'unreal archviz';
+                }else if (sectionKey === 'software') {
                     simplifiedKey = words.slice(0, 2).join(' ').toLowerCase();
                 } else {
                     simplifiedKey = words[0].replace(',', '').toLowerCase();
@@ -85,61 +89,76 @@ function findProjectData(originalQuery, searchQuery, responseText) {
     //         }
     //     }
     // }
-let foundProjects = [];
-    const combinedQuery = (originalQuery.toLowerCase() + ' ' + searchQuery.toLowerCase());
+   const combinedQuery = (originalQuery.toLowerCase() + ' ' + searchQuery.toLowerCase());
+   console.log(`Combined query for project search: "${combinedQuery}"`);
+    
+    // STEP 1: High-priority check for the special "Unreal" case, based ONLY on the user's query.
+    const mentionsUnreal = combinedQuery.includes('unreal');
+    
+    // --- Including all specified keywords ---
+    const mentionsArchitects = combinedQuery.includes('architect') || combinedQuery.includes('architects') || combinedQuery.includes('építész') || combinedQuery.includes('építészeknek');
+    const mentionsArchviz = combinedQuery.includes('archviz');
 
-    // --- PRIORITY 1: Search the user's own query first. ---
-    for (const simplifiedKey in projectMap) {
-        if (combinedQuery.includes(simplifiedKey)) {
-            if (!foundProjects.some(p => p.name === projectMap[simplifiedKey].name)) {
-                foundProjects.push(projectMap[simplifiedKey]);
+    if (mentionsUnreal) {
+        // Find the full project data objects for our Unreal projects
+        const unrealArchitectsProject = Object.values(projectMap).find(p => p.name === 'Unreal - Guide for Architects');
+        const unrealArchvizProject = Object.values(projectMap).find(p => p.name === 'Unreal - Guide for Archviz');
+
+        if (mentionsArchitects && mentionsArchviz) {
+            // Case 1: The query is ambiguous, mentions both. Return both projects.
+            console.log("Disambiguation (Query): User mentioned BOTH Unreal projects. Returning multiple.");
+            const foundProjects = [unrealArchitectsProject, unrealArchvizProject].filter(Boolean);
+            if (foundProjects.length > 0) {
+                 return { count: foundProjects.length, primaryProject: foundProjects[0], sections: new Set(foundProjects.map(p => p.sectionKey)) };
+            }
+        } else if (mentionsArchitects) {
+            // Case 2: Query is specific to the Architects guide. Return only that one.
+            console.log("Disambiguation (Query): User query points to 'Unreal for Architects'.");
+            if (unrealArchitectsProject) {
+                return { count: 1, primaryProject: unrealArchitectsProject, sections: new Set([unrealArchitectsProject.sectionKey]) };
+            }
+        } else if (mentionsArchviz) {
+            // Case 3: Query is specific to the Archviz guide. Return only that one.
+            console.log("Disambiguation (Query): User query points to 'Unreal for Archviz'.");
+            if (unrealArchvizProject) {
+                return { count: 1, primaryProject: unrealArchvizProject, sections: new Set([unrealArchvizProject.sectionKey]) };
             }
         }
     }
+    // --- END OF HIGH-PRIORITY UNREAL CHECK ---
+
+
+    // --- GENERAL PROJECT SEARCH LOGIC (IF UNREAL LOGIC DIDN'T RETURN) ---
+    const search = (textToSearch) => {
+        const lowerCaseText = textToSearch.toLowerCase();
+        let projects = [];
+        for (const simplifiedKey in projectMap) {
+            if (lowerCaseText.includes(simplifiedKey)) {
+                if (!projects.some(p => p.name === projectMap[simplifiedKey].name)) {
+                    projects.push(projectMap[simplifiedKey]);
+                }
+            }
+        }
+        return projects;
+    };
+
+    // Stage 1: Search the user's query first.
+    let foundProjects = search(combinedQuery);
+    console.log(`Stage 1 (Query Search) found ${foundProjects.length} project(s).`);
 
     if (foundProjects.length === 1) {
-        // If the user's query points to exactly one project, we have a definitive match.
-        console.log(`Definitive match found in user query: ${foundProjects[0].name}`);
+        console.log(`Definitive match found from user query: ${foundProjects[0].name}`);
         return { count: 1, primaryProject: foundProjects[0], sections: new Set([foundProjects[0].sectionKey]) };
     }
 
-    // --- PRIORITY 2: If the query was ambiguous, fall back to the LLM's response. ---
-    console.log("Query was ambiguous. Falling back to searching LLM response.");
-    const lowerCaseResponse = responseText.toLowerCase();
-    foundProjects = []; // Reset for the second search
-    for (const simplifiedKey in projectMap) {
-        if (lowerCaseResponse.includes(simplifiedKey)) {
-            if (!foundProjects.some(p => p.name === projectMap[simplifiedKey].name)) {
-                foundProjects.push(projectMap[simplifiedKey]);
-            }
-        }
-    }
-
-    // --- "UNREAL" LOGIC IMPLEMENTED ---
-    const isUnrealArchitects = foundProjects.some(p => p.name === 'Unreal - Guide for Architects');
-    const isUnrealArchviz = foundProjects.some(p => p.name === 'Unreal - Guide for Archviz');
-
-    // Only run disambiguation if the ONLY projects found are the two Unreal guides.
-    if (isUnrealArchitects && isUnrealArchviz && foundProjects.length === 2) {
-        const lowerCaseQuery = searchQuery.toLowerCase();
-        const mentionsArchitects = lowerCaseQuery.includes('architects');
-        const mentionsArchviz = lowerCaseQuery.includes('archviz');
-
-        if (mentionsArchitects && !mentionsArchviz) {
-            console.log("Disambiguation: User query points to 'Unreal for Architects'.");
-            foundProjects = foundProjects.filter(p => p.name === 'Unreal - Guide for Architects');
-        } else if (!mentionsArchitects && mentionsArchviz) {
-            console.log("Disambiguation: User query points to 'Unreal for Archviz'.");
-            foundProjects = foundProjects.filter(p => p.name === 'Unreal - Guide for Archviz');
-        }
-    }
-    // --- END OF SPECIAL LOGIC ---
+    // Stage 2: If the query was ambiguous, fall back to the LLM's response.
+    console.log("Query was not definitive. Falling back to searching LLM response.");
+    foundProjects = search(responseText);
+    console.log(`Stage 2 (Response Search) found ${foundProjects.length} project(s).`);
 
     if (foundProjects.length === 0) {
         return null;
     }
-    console.log(`function_Found ${foundProjects.length} projects matching the query: ${searchQuery}`);
-    console.log('findproject:', foundProjects)
 
     return {
         count: foundProjects.length,
