@@ -315,6 +315,8 @@ The project is organized into several key directories and files. The core logic 
 │       ├── languageSwitcher.js    # ✅ Manages language for the main site and communicates with the chatbot.
 │       └── script_indexes.js      # ✅ Manages navigation for the main site and executes chatbot commands.
 │
+├── index.html                # The welcome page HTML file including the link to the chatbot-loader.js script.
+│
 ├── images/
 │   ├── architecture-overview.png
 │   └── detailed-system-flow.png
