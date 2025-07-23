@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accaderi.hu - English</title>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon-32x32.png">
+    <link rel="stylesheet" href="css/style_main_index.css">
+    <link rel="stylesheet" href="css/language_switcher.css">
+    <link rel="stylesheet" href="css/style_counter.css">
+</head>
+<body>
+    <button id="lang-button">HU</button>
+    <header class="main-header">
+        <div class="content-en">
+            <h1>Welcome to Accaderi</h1>
+            <p>Bridging Architecture and Technology with Innovation</p>
+        </div>
+        <div class="content-hu">
+            <h1>Üdvözlöm Accaderi oldalán</h1>
+            <p>Innovatív híd az építészet és a technológia között</p>
+        </div>
+    </header>
+
+    <main class="paths-container">
+        <div class="path-card">
+            <img src="architecture/images_architecture/main.jpg" alt="Architecture & Engineering" class="path-image">
+            <div class="path-content">
+                    <div class="content-en">
+                    <h2>Architecture & Engineering</h2>
+                    <p>Explore my architectural projects, services, and expertise in building design, technical documentation, and project management. With over 20 years of international experience in creating efficient, aesthetic, and sustainable building solutions.</p>
+                    </div>
+                    <div class="content-hu">
+                        <h2>Építészet és Mérnöki Tervezés</h2>
+                        <p>Ismerje meg építészeti projektjeimet, szolgáltatásaimat és szakterületeimet az épülettervezés, műszaki dokumentáció és projektmenedzsment területén. Több mint 20 év nemzetközi tapasztalattal hatékony, esztétikus és fenntartható építészeti megoldásokat kínálok.</p>
+                        <br>
+                    </div>
+                    <a href="architecture/index.html" class="path-button lang-to-path" id="architecture-button">Enter Architecture Section ➔</a>
+            </div>
+        </div>
+            <div class="path-card">
+                <img src="software/images/futuristic_code_montage.jpg" alt="AI, Software and Automation" class="path-image">
+                <div class="path-content">
+                    <div class="content-en">
+                    <h2>AI, Software and Automation</h2>
+                    <p>Discover my software solutions, AI implementations, and automation services. From custom applications and data analytics to AI-powered tools and process automation, helping businesses work smarter and more efficiently.</p>
+                    </div>
+                    <div class="content-hu">
+                        <h2>MI, Szoftverfejlesztés és Automatizálás</h2>
+                        <p>Fedezze fel szoftveres megoldásaimat, mesterséges intelligenciára épülő rendszereimet és automatizálási szolgáltatásaimat. Egyedi alkalmazásoktól és adatfeldolgozástól kezdve MI-alapú eszközökön át a folyamatok automatizálásáig segítem a vállalkozásokat abban, hogy okosabban és hatékonyabban működjenek.</p>
+                    </div>
+                    <a href="software/index.html" class="path-button lang-to-path">Enter Software Section ➔</a>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="content-en">
+                <p id="footer-text">© 2024 Accaderi. All rights reserved.</p>
+            </div>
+            <div class="content-hu">
+                <p id="footer-text">© 2024 Accaderi. Minden jog fenntartva.</p>
+            </div>
+        </footer>
+
+    <!-- Visitor counter display -->
+    <div class="visitor-counter">
+        <div class="content-en">
+            <p><strong>VISITOR COUNTERS</strong></p>
+            <p><strong>Welcome Page</strong></p>
+            <p>This Week: <span id="welcome-weekly">...</span></p>
+            <p>This Month: <span id="welcome-monthly">...</span></p>
+            <p>This Year: <span id="welcome-yearly">...</span></p>
+            <p>Total: <span id="welcome-count">...</span></p>
+            <p><strong>EN Visitor Counters</strong></p>
+            <p>This Week: <span id="en-weekly-count">...</span></p>
+            <p>This Month: <span id="en-monthly-count">...</span></p>
+            <p>This Year: <span id="en-yearly-count">...</span></p>
+            <p>Total EN Visitors: <span id="en-total-count">...</span></p>
+            <p><strong>Total Visitor Counters</strong></p>
+            <p>This Week: <span id="weekly-count">...</span></p>
+            <p>This Month: <span id="monthly-count">...</span></p>
+            <p>This Year: <span id="yearly-count">...</span></p>
+            <p>Total Visitors: <span id="total-count">...</span></p>
+        </div>
+        <div class="content-hu">
+            <p><strong>LÁTOGATÓ SZÁMLÁLÓK</strong></p>
+            <p><strong>Üdvözlő Oldal</strong></p>
+            <p>Ezen a héten: <span id="welcome-hu-weekly">...</span></p>
+            <p>Ebben a hónapban: <span id="welcome-hu-monthly">...</span></p>
+            <p>Ebben az évben: <span id="welcome-hu-yearly">...</span></p>
+            <p>Összesen: <span id="welcome-hu-count">...</span></p>
+            <p><strong>HU Látogatók Száma</strong></p>
+            <p>Ezen a héten: <span id="hu-weekly-count">...</span></p>
+            <p>Ebben a hónapban: <span id="hu-monthly-count">...</span></p>
+            <p>Ebben az évben: <span id="hu-yearly-count">...</span></p>
+            <p>Összes HU Látogató: <span id="hu-total-count">...</span></p>
+            <p><strong>Összes Látogatók Száma</strong></p>
+            <p>Ezen a héten: <span id="weekly-count-hu">...</span></p>
+            <p>Ebben a hónapban: <span id="monthly-count-hu">...</span></p>
+            <p>Ebben az évben: <span id="yearly-count-hu">...</span></p>
+            <p>Összes Látogató: <span id="total-count-hu">...</span></p>
+        </div>
+    </div>
+    <!-- Visitor counter script -->
+    <script src="js/counter.js" defer></script>
+    <script src="js/language_switcher.js" defer></script>
+    <script src="/js/chatbot-loader.js" defer></script>
+</body>
+</html>
+
