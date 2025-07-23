@@ -165,7 +165,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const buttonElement = chatContainer.querySelector('button[type="submit"]');
             const newChatBtn = chatContainer.querySelector('#new-chat-button');
             if (titleElement) titleElement.textContent = translations.title;
-            if (inputElement) inputElement.placeholder = translations.placeholder;
+             if (inputElement) {
+                inputElement.placeholder = translations.placeholder;
+                inputElement.title = (upperLang === 'HU') 
+                    ? "Kérjük, írja be a kérdését ide." 
+                    : "Please enter your question here.";
+            }
             if (buttonElement) buttonElement.textContent = translations.send;
             if (newChatBtn) {
                 newChatBtn.textContent = translations.newChat;
