@@ -310,12 +310,12 @@ The project is organized into several key directories and files. The core logic 
 ├── frontend/
 │   ├── css/
 │   │   └── chatbot-style.css  # Styling for the embeddable widget container on your main site.
-│   └── js/
-│       ├── chatbot-loader.js      # ✅ The script to load the chatbot widget on your main site.
-│       ├── languageSwitcher.js    # ✅ Manages language for the main site and communicates with the chatbot.
-│       └── script_indexes.js      # ✅ Manages navigation for the main site and executes chatbot commands.
-│
-├── index.html                # The welcome page HTML file including the link to the chatbot-loader.js script.
+│   ├── js/
+│   │   ├── chatbot-loader.js      # ✅ The script to load the chatbot widget on your main site.
+│   │   ├── languageSwitcher.js    # ✅ Manages language for the main site and communicates with the chatbot.
+│   │   └── script_indexes.js      # ✅ Manages navigation for the main site and executes chatbot commands.
+│   │
+│   └── index.html                # The welcome page HTML file including the link to the chatbot-loader.js script.
 │
 ├── images/
 │   ├── architecture-overview.png
