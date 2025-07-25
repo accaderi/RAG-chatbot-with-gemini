@@ -33,6 +33,16 @@ A: I have a Master's degree in Architecture and Engineering and over 20 years of
 **Q: What is your technical expertise in software?**
 A: My technical skills include Artificial Intelligence (AI), Machine Learning (ML), Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), process automation, full-stack web development (Python, JavaScript), and cloud services. I build tools ranging from AI chatbots to data analysis platforms and Chrome extensions.
 
+**Q: What is your technology stack? / What technologies do you use?**
+A: Our technology stack is broad and modern, allowing us to choose the best tools for the job. We have deep expertise in:
+*   **Backend Development:** Python (with Django), Node.js (with Express)
+*   **Frontend Development:** Vanilla JavaScript, HTML, CSS, R (with Shiny for data apps)
+*   **AI & Machine Learning:** Google Gemini, Langchain, Ollama for local models, Qdrant and pgvector for vector databases.
+*   **Automation & DevOps:** n8n for workflow automation, Docker for containerization, and Nginx for web serving.
+*   **Databases:** PostgreSQL, Supabase, Firestore.
+*   **Game Development:** Unity Engine, Pygame.
+*   **Architectural Software Integration:** We also develop custom tools and scripts for Archicad using its Python API.
+
 **Q: Where are you based?**
 A: I am based in Budapest, Hungary, and I am available for projects worldwide, offering both on-site and remote collaboration.
 
@@ -545,8 +555,8 @@ This project is an n8n workflow designed to automate document parsing using the 
     A: It automates the process of extracting structured data, especially tables and charts, from documents using LlamaParse, all managed through an n8n workflow.
 *   **Q: What are the key features?**
     A: It offers multiple parsing modes (from basic text extraction to advanced AI-based analysis), integrated Google Drive file management, and customizable processing options for specific pages or content types.
-*   **Q: What technologies does it use?**
-    A: The core technologies are n8n for workflow automation, the LlamaParse API for parsing, and the Google Drive API for file handling.
+*   **Q: What technology was used in the LlamaParse Test project?**
+    A: The core technologies were n8n for workflow automation, the Google Drive API for file handling, and the LlamaParse API for document parsing.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -565,6 +575,8 @@ This project is an n8n workflow designed to automate document parsing using the 
     A: It uses a Qdrant vector database to retrieve relevant information for context and allows the user to review and request revisions up to three times before a final email is sent.
 *   **Q: What tools does it integrate with?**
     A: It integrates with Gmail for email handling, Qdrant for the vector database, and can use tools like Wikipedia and Google Sheets to fetch additional information.
+*   **Q: What AI models and technologies were used in the Email on Autopilot project?**
+    A: This workflow uses Large Language Models for summarization and classification, integrated via n8n. The core technologies are the Google Cloud APIs and a Qdrant vector database for providing context.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -581,8 +593,8 @@ LightRAG Chat is a sophisticated, locally hosted AI chatbot that can be accessed
     A: It is a privacy-focused, locally hosted AI chatbot that answers questions based on provided documents. It can be controlled through messaging apps like Telegram and WhatsApp.
 *   **Q: What is unique about its architecture?**
     A: It runs AI models locally on a dedicated server using Ollama, which can be woken on-demand (Wake-on-LAN). This ensures data privacy. The entire process is orchestrated by an n8n workflow.
-*   **Q: What technologies are used?**
-    A: The stack includes a Django API, Ollama for local model hosting, Supabase for vector storage, and n8n for workflow automation.
+*   **Q: What technology was used in the LightRAG Chat project?**
+    A: The core technologies were a Django API (built with Python), Ollama for local model hosting, n8n for workflow automation, and Supabase with pgvector for the vector database.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -601,6 +613,8 @@ YouTube Chronicle is an n8n workflow that creates a personalized, dynamic webpag
     A: It includes a secure user authentication system (with options for Google Sheets, Firestore, or Supabase) to store user credentials and their selected YouTube channels.
 *   **Q: Is it secure?**
     A: Yes, it uses Google OAuth for secure API access and includes session management with inactivity timeouts and logout functionality.
+*   **Q: What technology was used in the YouTube Chronicle project?**
+    A: The project is an n8n workflow that uses the YouTube API for data retrieval and an LLM API (like Groq) for summarization. It also integrates with databases like Google Sheets, Firestore, or Supabase for user management.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -617,8 +631,8 @@ This project is a guide and workflow for creating a fully automated daily news w
     A: It creates an automated system that generates a fresh news webpage every day with AI-summarized articles and AI-generated images, requiring no manual intervention.
 *   **Q: How does it gather content?**
     A: It uses web scraping to collect article links from news sources defined in a Google Sheet, randomly selects articles for diversity, and captures full-page screenshots.
-*   **Q: What is the technology stack?**
-    A: It uses n8n for automation, Google Gemini for summarization, Hugging Face for image generation, Cloudflare R2 for image storage, and SFTP for deployment.
+*   **Q: What AI models and technologies were used in this project?**
+    A: This project uses Google Gemini for text analysis and summarization, and a Hugging Face model for image generation. The workflow is automated with n8n and uses Cloudflare R2 for storage.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -635,8 +649,8 @@ RAG_64 is a unique web application with a retro Commodore 64 design that allows 
     A: It's a web app with a nostalgic Commodore 64 interface that lets you have a conversation with your documents and other information sources like Wikipedia.
 *   **Q: What makes it special?**
     A: Its highly customizable RAG workflow allows the user to toggle different information sources (PDF, Web Search, etc.) and choose different AI models (like Groq or a local Ollama model). It also has a text-to-speech feature.
-*   **Q: What technologies does it use?**
-    A: It's built with Django, Langchain (with Langgraph), and uses WebSockets for real-time chat responses. The database is PostgreSQL.
+*   **Q: What technology was used in the RAG_64 project?**
+    A: The core technologies were Django (Python), Langchain with Langgraph for the RAG pipeline, and WebSockets for real-time communication. It uses a PostgreSQL database.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -657,6 +671,8 @@ Bookmark Genie is a Chrome browser extension that uses AI to help users organize
     A: Yes, it is available on the Chrome Web Store. You will need to get a free API key from Groq to use it.
 *   **Q: What are its key features?**
     A: Key features include AI-powered categorization, hierarchical folder management, custom category creation, instant sorting of new bookmarks, and the ability to export/import your category structure.
+*   **Q: What technology was used to build the Bookmark Genie?**
+    A: It is a browser extension built with JavaScript using the Chrome Extension APIs. It uses the Groq API to power its AI categorization features.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -675,6 +691,8 @@ visR is an R Shiny package created for interactive data visualization and basic 
     A: Users can upload a CSV file and create multiple types of interactive plots like scatter plots, line plots, and heatmaps. It also has a basic AI tab for running classification and regression models.
 *   **Q: Who is it for?**
     A: It is designed to make data visualization and basic AI modeling accessible to users of all skill levels, from beginners to experienced analysts.
+*   **Q: What technology was used to build visR?**
+    A: visR is a comprehensive package for the R programming language, built using the Shiny framework for the user interface and plotly for interactive visualizations.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -693,6 +711,8 @@ This project is a comprehensive guide for architects and visualization professio
     A: It covers advanced rendering features like Lumen Global Illumination and Path Tracing, creating complex materials for glass and media screens, and setting up interactive elements like sliding doors.
 *   **Q: Who is the target audience?**
     A: It is specifically tailored for architects and architectural visualization professionals who want to leverage Unreal Engine's powerful features.
+*   **Q: What technology is this guide focused on?**
+    A: This guide is focused on Unreal Engine, specifically using its Blueprint Visual Scripting and Material Editor for architectural visualization.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -711,6 +731,8 @@ This guide provides a step-by-step walkthrough for creating fully interactive ar
     A: The guide heavily uses Unreal Engine's UMG (Unreal Motion Graphics) for creating the UI and Blueprint Visual Scripting for handling all the interactive logic.
 *   **Q: What kind of interactions can be created?**
     A: You can create material switching systems using Level Variant Sets, interactive light switches, media displays on in-scene TVs, and even user-triggered water simulations.
+*   **Q: What technology is this guide focused on?**
+    A: This guide is focused on Unreal Engine, specifically using UMG (Unreal Motion Graphics) and Blueprint Visual Scripting to create interactive user interfaces.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -729,6 +751,8 @@ This repository contains a set of Jupyter notebooks that serve as a guide for in
     A: The guide is presented as interactive Jupyter notebooks, which allows users to run the code and see the results live while connected to Archicad.
 *   **Q: What can you do with the Archicad API?**
     A: You can perform a wide range of operations, such as checking the connection status, manipulating Navigator items (like the Project Map and Layout Book), and executing more complex commands.
+*   **Q: What technology was used for this project?**
+    A: This project uses Python within Jupyter Notebooks to interact with the Archicad application via its official Python API.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -747,6 +771,8 @@ This GitHub repository is a collection of practical Python scripts that automate
     A: Examples include a script to find unused items in the View Map, a script to automatically number zones based on their position, a script to detect duplicate Element IDs, and utilities to import/export data to and from Excel.
 *   **Q: What do I need to run them?**
     A: You need an open Archicad project, a Python environment, and the `archicad` and `openpyxl` Python packages installed.
+*   **Q: What technology was used for the Archicad Automation Scripts?**
+    A: This project consists of several scripts developed in Python, using the `archicad` API module and the `openpyxl` library for Excel integration.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -763,8 +789,8 @@ Pongify is a modern reimagining of the classic arcade game Pong, built with Pyth
     A: It is a custom-built version of the classic game Pong, with many modern features and customization options.
 *   **Q: What makes it different from the original Pong?**
     A: It adds randomly generated obstacles that change the gameplay, allows players to set their own rules (like ball speed and winning score), supports custom backgrounds, and can be played against another human or an AI opponent.
-*   **Q: What technology was used to build it?**
-    A: It was built entirely in Python using the Pygame library for game development and Pillow for image handling.
+*   **Q: What technology was used to build Pongify?**
+    A: The Pongify game was built entirely in Python, using the popular Pygame library for game development and Pillow for image handling.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -783,6 +809,8 @@ Atomremix is a modern, 3D remake of the classic 1990 Amiga puzzle game "Atomix,"
     A: Players swipe atoms up, down, left, or right. The atoms slide until they hit a wall or another atom. The goal is to arrange the atoms to form a specific molecule shown on screen.
 *   **Q: Are there any special features?**
     A: Yes, there are 15 levels with progressive difficulty, including bonus stages and levels with unique mechanics like particle effects, darkness, and periodic control reversal. It also has a highscore system.
+*   **Q: What technology was used to build Atomremix?**
+    A: Atomremix was developed using the Unity Engine. It primarily uses Unity's visual scripting system, with some components written in C#.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -801,6 +829,8 @@ Atomremix is a modern, 3D remake of the classic 1990 Amiga puzzle game "Atomix,"
     A: It's an excellent example for beginners who are learning the fundamentals of game development using Scratch's accessible visual programming environment.
 *   **Q: How do you play?**
     A: You use the arrow keys to move the ship, the mouse to aim, and the left mouse button to shoot projectiles.
+*   **Q: What technology was used to build Apples in Space?**
+    A: This mini-game was created entirely using the Scratch visual programming language.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -819,6 +849,8 @@ This GitHub guide provides comprehensive instructions for setting up and securin
     A: It provides options. SFTP (based on SSH) is generally more secure, but FTP is still widely used. The guide provides secure configurations for both.
 *   **Q: What practical topics are covered?**
     A: The guide covers package installation, security-focused configuration, firewall rules, creating dedicated users, and setting up shared directories with multi-user access.
+*   **Q: What technologies does this guide cover?**
+    A: This guide covers server administration on Debian Linux, specifically configuring VSFTPD for FTP, OpenSSH for SFTP, and UFW (Uncomplicated Firewall).
 
 © 2024 Accaderi. All rights reserved.
 
@@ -837,6 +869,8 @@ This project is a detailed guide on how to host a simple HTML website on a home 
     A: No, the guide is designed to be step-by-step and even provides a sample responsive HTML template to get you started.
 *   **Q: Can I use this to host other services?**
     A: Yes, the guide includes an optional section on how to configure Nginx as a reverse proxy to run services like n8n alongside your website.
+*   **Q: What technologies does this guide cover?**
+    A: This guide focuses on web server configuration using Nginx, along with basic HTML/CSS and securing the site with SSL certificates from Certbot.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -855,6 +889,8 @@ This is a complete setup guide for self-hosting the n8n workflow automation plat
     A: Using Docker makes the installation, setup, and maintenance of n8n much easier and more reliable through containerization.
 *   **Q: Is the setup secure?**
     A: Yes, the guide emphasizes security by using UFW firewall rules and configuring Nginx with free SSL certificates from Let's Encrypt for encrypted HTTPS connections.
+*   **Q: What are the core technologies for this setup?**
+    A: The core technologies are Docker for containerization, Nginx as a reverse proxy, and Certbot for SSL security, all running on a home server.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -873,6 +909,8 @@ This project is a demonstration of a Chrome extension that integrates secure use
     A: It uses Firebase Authentication for the sign-in process and the Firestore database to securely track user data and payment status in real-time.
 *   **Q: Who is this project for?**
     A: It is for developers who want to learn how to build professional Chrome extensions that require user accounts and payment capabilities.
+*   **Q: What technologies were used in this Chrome Extension?**
+    A: The extension was built with JavaScript and the Chrome Extension APIs. It uses Firebase for authentication and database services, and the Stripe API for payment processing.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -891,6 +929,8 @@ This project is an automated cryptocurrency trading bot that connects to a Binan
     A: The core strategy is based on the EMA (Exponential Moving Average) crossover, but it uses the ADX and Choppiness Index as filters to avoid trading in weak or non-trending markets.
 *   **Q: Does it include tools for testing?**
     A: Yes, the repository includes a Jupyter Notebook and Python scripts for backtesting the strategy on historical data to evaluate its performance and optimize its parameters.
+*   **Q: What technologies were used to build the Trading Bot?**
+    A: The application was built with Python using the Django framework. It connects to the Binance API via WebSockets and uses Pandas for data analysis and Plotly.js for visualization.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -909,6 +949,8 @@ This project is a powerful Python tool that scrapes data from real estate websit
     A: It uses Selenium with `undetected_chromedriver` to perform web scraping on supported real estate websites, bypassing many anti-bot measures.
 *   **Q: What kind of visualizations can it create?**
     A: It can create many interactive charts, including property distribution charts, price vs. rooms histograms, heatmaps, scatter plots, and geographical choropleth maps (if a Mapbox API key is provided).
+*   **Q: What technologies were used in the Real Estate Analyzer?**
+    A: This is a web scraping tool built with Python. It uses the Flask framework for the web interface, Selenium for scraping, Pandas for data analysis, and Plotly for creating interactive charts.
 
 © 2024 Accaderi. All rights reserved.
 
@@ -927,6 +969,8 @@ This project is a Python Jupyter Notebook script designed to efficiently upload 
     A: It processes files in manageable chunks. Instead of loading an entire file into memory, it reads and uploads the data piece by piece.
 *   **Q: What are its key features?**
     A: Its features include memory-efficient unzipping, intelligent data type detection to optimize the database schema, chunked processing, and specialized enhancements for creating relationships and lookup tables for the IMDb dataset.
+*   **Q: What technologies were used in this script?**
+    A: This project is a Python script designed to run in a Jupyter Notebook. It uses the Pandas library for data manipulation and SQLAlchemy for interacting with the PostgreSQL database.
 
 © 2024 Accaderi. All rights reserved.
 
