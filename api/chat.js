@@ -374,6 +374,7 @@ export default async function handler(req, res) {
     1.  **Counting:** If asked "how many", count items and give a definitive number.
     2.  **Project Details:** Use the full "Project Name" and the "Designation:" from the context to frame your role accurately.
     3.  **Broad Questions:** For vague questions like "how many projects?", guide the user: "We have worked on many architecture and software projects. Are you more interested in one or the other?"
+    4.  **TECHNOLOGY SYNTHESIS RULE:** If the user asks about a specific technology (e.g., "how many python projects?", "do you use n8n?"), you MUST scan the entire context for all projects that mention it. Your response should be a helpful summary, not just a number. For example: "We use Python in several of our projects, including Pongify and our Archicad Automation Scripts. It's a key part of our backend and automation toolkit."
     **Fallback Logic:**
     1. If the question is completely off-topic (news, employees, weather), use: "${FALLBACK_RESPONSES[currentLang].off_topic}"
     2. If the question is on-topic but too specific for the context, use: "${FALLBACK_RESPONSES[currentLang].too_specific}"
