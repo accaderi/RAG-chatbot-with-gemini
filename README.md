@@ -10,8 +10,6 @@
   <a href="https://youtu.be/zuBhmYDYfNc">Build a Smart Bilingual AI Chatbot for Your Website | Google Gemini + RAG Tutorial</a>
 </p>
 
-Learn how to build a smart, bilingual AI chatbot using Google Gemini and Retrieval-Augmented Generation (RAG).
-
 ## Introduction
 
 This repository contains the complete source code for a sophisticated, bilingual (English/Hungarian) RAG (Retrieval-Augmented Generation) chatbot. The chatbot is designed to be embedded as a widget on a website and acts as a knowledgeable team member for the company "Accaderi," answering questions about its dual expertise in Architecture and AI/Software Development.
@@ -296,6 +294,7 @@ The project is organized into several key directories and files. The core logic 
 ├── api/
 │   ├── chat.js                # ✅ The core backend serverless function (the "brain"). This is the main file to edit for logic.
 │   ├── rag-data_en.json       # The generated English vector database. DO NOT EDIT MANUALLY.
+│   └── rag-data_hu.json       # The generated Hungarian vector database. Not used, reference only.
 │
 ├── crawler for accaderi local/ # Separate project for crawling accaderi website.
 │   ├── crawler.js             # A helper script used to scrape the website content initially.
