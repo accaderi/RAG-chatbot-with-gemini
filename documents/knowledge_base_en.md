@@ -558,8 +558,6 @@ This project is an n8n workflow designed to automate document parsing using the 
 *   **Q: What technology was used in the LlamaParse Test project?**
     A: The core technologies were n8n for workflow automation, the Google Drive API for file handling, and the LlamaParse API for document parsing.
 
-© 2024 Accaderi. All rights reserved.
-
 ---
 
 # Page: software/projects/ai/project2.html
@@ -573,12 +571,8 @@ This project is an n8n workflow designed to automate document parsing using the 
     A: It automates the time-consuming process of responding to emails by using AI to generate accurate, context-aware replies.
 *   **Q: How does it ensure the replies are accurate?**
     A: It uses a Qdrant vector database to retrieve relevant information for context and allows the user to review and request revisions up to three times before a final email is sent.
-*   **Q: What tools does it integrate with?**
-    A: It integrates with Gmail for email handling, Qdrant for the vector database, and can use tools like Wikipedia and Google Sheets to fetch additional information.
-*   **Q: What AI models and technologies were used in the Email on Autopilot project?**
+*   **Q: What AI models and technologies were used in this project?**
     A: This workflow uses Large Language Models for summarization and classification, integrated via n8n. The core technologies are the Google Cloud APIs and a Qdrant vector database for providing context.
-
-© 2024 Accaderi. All rights reserved.
 
 ---
 
@@ -586,7 +580,7 @@ This project is an n8n workflow designed to automate document parsing using the 
 ## LightRAG Chat.
 
 ### Project Summary
-LightRAG Chat is a sophisticated, locally hosted AI chatbot that can be accessed via Telegram or WhatsApp. It uses both traditional and advanced RAG (Retrieval-Augmented Generation) frameworks to answer questions, with AI models running locally on a separate GPU-powered computer.
+LightRAG Chat is a sophisticated, locally hosted AI chatbot that can be accessed via Telegram or WhatsApp. It uses both traditional and advanced RAG (Retrieval-Augmented Generation) frameworks to answer questions, with AI models running locally on a separate GPU-powered computer for privacy.
 
 ### Q&A Snapshot
 *   **Q: What is LightRAG Chat?**
@@ -596,27 +590,21 @@ LightRAG Chat is a sophisticated, locally hosted AI chatbot that can be accessed
 *   **Q: What technology was used in the LightRAG Chat project?**
     A: The core technologies were a Django API (built with Python), Ollama for local model hosting, n8n for workflow automation, and Supabase with pgvector for the vector database.
 
-© 2024 Accaderi. All rights reserved.
-
 ---
 
 # Page: software/projects/ai/project4.html
 ## YouTube Chronicle.
 
 ### Project Summary
-YouTube Chronicle is an n8n workflow that creates a personalized, dynamic webpage summarizing the latest videos from a user's favorite YouTube channels. The system handles user authentication, fetches video data and transcripts via the YouTube API, uses an LLM to summarize them, and presents them in a clean web interface.
+YouTube Chronicle is an n8n workflow that creates a personalized, dynamic webpage summarizing the latest videos from a user's favorite YouTube channels. The system handles user authentication, fetches video data and transcripts, uses an LLM to summarize them, and presents them in a clean web interface.
 
 ### Q&A Snapshot
 *   **Q: What does the YouTube Chronicle workflow do?**
     A: It automatically fetches the latest videos from up to five of your favorite YouTube channels, summarizes their content using AI, and displays these summaries on a private webpage.
 *   **Q: How does it manage users and their preferences?**
     A: It includes a secure user authentication system (with options for Google Sheets, Firestore, or Supabase) to store user credentials and their selected YouTube channels.
-*   **Q: Is it secure?**
-    A: Yes, it uses Google OAuth for secure API access and includes session management with inactivity timeouts and logout functionality.
-*   **Q: What technology was used in the YouTube Chronicle project?**
+*   **Q: What technology was used in this project?**
     A: The project is an n8n workflow that uses the YouTube API for data retrieval and an LLM API (like Groq) for summarization. It also integrates with databases like Google Sheets, Firestore, or Supabase for user management.
-
-© 2024 Accaderi. All rights reserved.
 
 ---
 
@@ -634,8 +622,6 @@ This project is a guide and workflow for creating a fully automated daily news w
 *   **Q: What AI models and technologies were used in this project?**
     A: This project uses Google Gemini for text analysis and summarization, and a Hugging Face model for image generation. The workflow is automated with n8n and uses Cloudflare R2 for storage.
 
-© 2024 Accaderi. All rights reserved.
-
 ---
 
 # Page: software/projects/ai/project6.html
@@ -652,15 +638,13 @@ RAG_64 is a unique web application with a retro Commodore 64 design that allows 
 *   **Q: What technology was used in the RAG_64 project?**
     A: The core technologies were Django (Python), Langchain with Langgraph for the RAG pipeline, and WebSockets for real-time communication. It uses a PostgreSQL database.
 
-© 2024 Accaderi. All rights reserved.
-
 ---
 
 # Page: software/projects/ai/project7.html
 ## Bookmark Genie.
 
 ### Project Summary
-Bookmark Genie is a Chrome browser extension that uses AI to help users organize their bookmarks. It leverages Large Language Models (LLMs) from Groq to automatically categorize bookmarks into a hierarchical folder structure, create new categories as needed, and allow users to manage their own category tree. The extension is available on the Chrome Web Store.
+Bookmark Genie is a Chrome browser extension that uses AI to help users organize their bookmarks. It leverages Large Language Models (LLMs) from Groq to automatically categorize bookmarks into a hierarchical folder structure, create new categories as needed, and allow users to manage their own category tree. It is available on the Chrome Web Store.
 
 ### Q&A Snapshot
 *   **Q: What does the Bookmark Genie extension do?**
@@ -669,12 +653,8 @@ Bookmark Genie is a Chrome browser extension that uses AI to help users organize
     A: It uses various LLM models available through the Groq API, such as Mixtral, LLaMA 3, and Gemma.
 *   **Q: Can I get this extension?**
     A: Yes, it is available on the Chrome Web Store. You will need to get a free API key from Groq to use it.
-*   **Q: What are its key features?**
-    A: Key features include AI-powered categorization, hierarchical folder management, custom category creation, instant sorting of new bookmarks, and the ability to export/import your category structure.
 *   **Q: What technology was used to build the Bookmark Genie?**
     A: It is a browser extension built with JavaScript using the Chrome Extension APIs. It uses the Groq API to power its AI categorization features.
-
-© 2024 Accaderi. All rights reserved.
 
 ---
 
@@ -694,15 +674,51 @@ visR is an R Shiny package created for interactive data visualization and basic 
 *   **Q: What technology was used to build visR?**
     A: visR is a comprehensive package for the R programming language, built using the Shiny framework for the user interface and plotly for interactive visualizations.
 
-© 2024 Accaderi. All rights reserved.
+---
+
+# Page: software/projects/ai/project9.html
+## RAG Chatbot with Gemini
+
+### Project Summary
+This project is the very chatbot application you can interact with right now on this website. It is a sophisticated, bilingual (English/Hungarian) RAG (Retrieval-Augmented Generation) chatbot designed to be embedded as a widget on any website. It acts as a knowledgeable team member, answering questions based on a curated knowledge base, and is a complete demonstration of building a production-ready AI assistant.
+
+### Q&A Snapshot
+*   **Q: What is the RAG Chatbot with Gemini project?**
+    A: It is the application you are using right now. It's a custom-built AI assistant designed to provide information about my services and projects in a conversational way.
+*   **Q: What are the main features of this chatbot?**
+    A: The key features are its bilingual support (English/Hungarian), conversational memory to understand follow-up questions, an advanced RAG architecture to ensure factual answers, and interactive navigation buttons to guide users on the website.
+*   **Q: What technology does this chatbot use?**
+    A: The backend is a serverless Node.js function hosted on Vercel. It uses Google's Gemini models for language generation and understanding. The frontend is built with vanilla HTML, CSS, and JavaScript and runs securely in an iframe.
+*   **Q: How does its conversational memory work?**
+    A: For follow-up questions, it uses an LLM to rewrite the vague query (e.g., "tell me more") into a specific, standalone question based on the conversation history. This ensures the subsequent knowledge base search is highly accurate.
+
+---
+
+# Page: software/projects/ai/project10.html
+## ModernBlog AI Editor
+
+### Project Summary
+This project is a modern, responsive static HTML blog website paired with a powerful, browser-based AI-Assisted Blog Editor. It allows content creation, editing, and AI-powered assistance to happen entirely on the user's local machine, with no need for a database or backend.
+
+### Q&A Snapshot
+*   **Q: What is the ModernBlog AI Editor?**
+    A: It's a complete static blog system where the content editor runs entirely in your browser. It uses AI to help write and edit posts, and it generates the final HTML files locally.
+*   **Q: What are its key features?**
+    A: It has a client-side WYSIWYG editor, live preview, multi-provider AI integration (OpenAI, Gemini, Groq), context-aware AI assistance, and AI image generation.
+*   **Q: How does it work without a backend?**
+    A: The entire application is built with vanilla JavaScript, HTML, and CSS. State is managed in the browser and drafts are saved to `localStorage`. It leverages browser APIs to let the user save the generated HTML files directly to their computer.
+*   **Q: What technology does it use?**
+    A: It is built with pure HTML, CSS, and modern JavaScript (ES6+), with no frameworks. It integrates with various AI provider APIs (OpenAI, Google, Groq, Hugging Face) on the client side.
+
+© 2025 ModernBlog. All rights reserved.
 
 ---
 
 # Page: software/projects/archi/project1.html
-## Unreal Engine Quick Guide for Architects. (Unreal for architects)
+## Unreal Engine Quick Guide for Architects
 
 ### Project Summary
-This project is a comprehensive guide for architects and visualization professionals on how to use Unreal Engine for architectural visualization. It covers essential topics from basic controls and material creation to advanced lighting (Lumen, Path Tracing) and performance optimization.
+This project is a comprehensive guide for architects and visualization professionals on how to use Unreal Engine for architectural visualization (ArchViz). It covers essential topics from basic controls and material creation to advanced lighting (Lumen, Path Tracing) and performance optimization.
 
 ### Q&A Snapshot
 *   **Q: What is this project?**
@@ -714,12 +730,10 @@ This project is a comprehensive guide for architects and visualization professio
 *   **Q: What technology is this guide focused on?**
     A: This guide is focused on Unreal Engine, specifically using its Blueprint Visual Scripting and Material Editor for architectural visualization.
 
-© 2024 Accaderi. All rights reserved.
-
 ---
 
 # Page: software/projects/archi/project2.html
-## Interactive Walkthrough Guide for ArchViz Projects in Unreal Engine. (Unreal Archviz)
+## Interactive Walkthrough Guide for ArchViz Projects in Unreal Engine
 
 ### Project Summary
 This guide provides a step-by-step walkthrough for creating fully interactive architectural visualizations in Unreal Engine (Unreal Archviz). It focuses on building responsive UI menus to control elements within the scene, such as switching materials, controlling lights, and displaying media.
@@ -731,10 +745,6 @@ This guide provides a step-by-step walkthrough for creating fully interactive ar
     A: The guide heavily uses Unreal Engine's UMG (Unreal Motion Graphics) for creating the UI and Blueprint Visual Scripting for handling all the interactive logic.
 *   **Q: What kind of interactions can be created?**
     A: You can create material switching systems using Level Variant Sets, interactive light switches, media displays on in-scene TVs, and even user-triggered water simulations.
-*   **Q: What technology is this guide focused on?**
-    A: This guide is focused on Unreal Engine, specifically using UMG (Unreal Motion Graphics) and Blueprint Visual Scripting to create interactive user interfaces.
-
-© 2024 Accaderi. All rights reserved.
 
 ---
 
@@ -749,12 +759,8 @@ This repository contains a set of Jupyter notebooks that serve as a guide for in
     A: It's a resource for architects and developers who want to learn how to automate Archicad tasks using its Python API.
 *   **Q: What format is the guide in?**
     A: The guide is presented as interactive Jupyter notebooks, which allows users to run the code and see the results live while connected to Archicad.
-*   **Q: What can you do with the Archicad API?**
-    A: You can perform a wide range of operations, such as checking the connection status, manipulating Navigator items (like the Project Map and Layout Book), and executing more complex commands.
 *   **Q: What technology was used for this project?**
     A: This project uses Python within Jupyter Notebooks to interact with the Archicad application via its official Python API.
-
-© 2024 Accaderi. All rights reserved.
 
 ---
 
@@ -762,19 +768,15 @@ This repository contains a set of Jupyter notebooks that serve as a guide for in
 ## Archicad Automation Scripts.
 
 ### Project Summary
-This GitHub repository is a collection of practical Python scripts that automate common, repetitive tasks in Archicad. Each script addresses a specific workflow, such as numbering zones, detecting element ID conflicts, and generating detailed reports to Excel.
+This GitHub repository is a collection of practical Python scripts that automate common, repetitive tasks in Archicad. Each script addresses a specific workflow, such as numbering zones, detecting element ID conflicts, generating detailed reports to Excel, and managing views.
 
 ### Q&A Snapshot
 *   **Q: What is the purpose of these scripts?**
     A: They are designed to save architects time and reduce errors by automating tedious tasks within Archicad, such as numbering chairs or parking spaces.
 *   **Q: What are some examples of the scripts?**
     A: Examples include a script to find unused items in the View Map, a script to automatically number zones based on their position, a script to detect duplicate Element IDs, and utilities to import/export data to and from Excel.
-*   **Q: What do I need to run them?**
-    A: You need an open Archicad project, a Python environment, and the `archicad` and `openpyxl` Python packages installed.
-*   **Q: What technology was used for the Archicad Automation Scripts?**
+*   **Q: What technology was used for these scripts?**
     A: This project consists of several scripts developed in Python, using the `archicad` API module and the `openpyxl` library for Excel integration.
-
-© 2024 Accaderi. All rights reserved.
 
 ---
 
@@ -792,27 +794,21 @@ Pongify is a modern reimagining of the classic arcade game Pong, built with Pyth
 *   **Q: What technology was used to build Pongify?**
     A: The Pongify game was built entirely in Python, using the popular Pygame library for game development and Pillow for image handling.
 
-© 2024 Accaderi. All rights reserved.
-
 ---
 
 # Page: software/projects/gaming/project2.html
 ## Atomremix.
 
 ### Project Summary
-Atomremix is a modern, 3D remake of the classic 1990 Amiga puzzle game "Atomix," developed in Unity for Android devices. Players solve puzzles by swiping to move atoms and assemble them into a target molecule, navigating through increasingly complex levels.
+Atomremix is a modern, 3D remake of the classic 1990 Amiga puzzle game "Atomix," developed in Unity for Android devices and available on the Google Play Store. Players solve puzzles by swiping to move atoms and assemble them into a target molecule.
 
 ### Q&A Snapshot
 *   **Q: What is Atomremix?**
-    A: It's a mobile puzzle game for Android, available on the Google Play Store. It is a remake of the classic puzzle game "Atomix".
+    A: It's a mobile puzzle game for Android that is a remake of the classic puzzle game "Atomix". It is available on the Google Play Store.
 *   **Q: What is the gameplay like?**
     A: Players swipe atoms up, down, left, or right. The atoms slide until they hit a wall or another atom. The goal is to arrange the atoms to form a specific molecule shown on screen.
-*   **Q: Are there any special features?**
-    A: Yes, there are 15 levels with progressive difficulty, including bonus stages and levels with unique mechanics like particle effects, darkness, and periodic control reversal. It also has a highscore system.
 *   **Q: What technology was used to build Atomremix?**
     A: Atomremix was developed using the Unity Engine. It primarily uses Unity's visual scripting system, with some components written in C#.
-
-© 2024 Accaderi. All rights reserved.
 
 ---
 
@@ -827,12 +823,8 @@ Atomremix is a modern, 3D remake of the classic 1990 Amiga puzzle game "Atomix,"
     A: It is a simple mini-game made with Scratch, where you fly a spaceship and shoot at apple asteroids.
 *   **Q: Who is this game for?**
     A: It's an excellent example for beginners who are learning the fundamentals of game development using Scratch's accessible visual programming environment.
-*   **Q: How do you play?**
-    A: You use the arrow keys to move the ship, the mouse to aim, and the left mouse button to shoot projectiles.
 *   **Q: What technology was used to build Apples in Space?**
     A: This mini-game was created entirely using the Scratch visual programming language.
-
-© 2024 Accaderi. All rights reserved.
 
 ---
 
@@ -847,12 +839,8 @@ This GitHub guide provides comprehensive instructions for setting up and securin
     A: It helps you set up secure file transfer services (FTP and the more secure SFTP) on a Debian Linux server.
 *   **Q: Why does it cover both FTP and SFTP?**
     A: It provides options. SFTP (based on SSH) is generally more secure, but FTP is still widely used. The guide provides secure configurations for both.
-*   **Q: What practical topics are covered?**
-    A: The guide covers package installation, security-focused configuration, firewall rules, creating dedicated users, and setting up shared directories with multi-user access.
 *   **Q: What technologies does this guide cover?**
     A: This guide covers server administration on Debian Linux, specifically configuring VSFTPD for FTP, OpenSSH for SFTP, and UFW (Uncomplicated Firewall).
-
-© 2024 Accaderi. All rights reserved.
 
 ---
 
@@ -865,14 +853,10 @@ This project is a detailed guide on how to host a simple HTML website on a home 
 ### Q&A Snapshot
 *   **Q: What can I learn from this guide?**
     A: You can learn how to set up your own website on a home server using Nginx, including how to configure it for security (HTTPS) and make it accessible from the internet.
-*   **Q: Does it require advanced web development skills?**
-    A: No, the guide is designed to be step-by-step and even provides a sample responsive HTML template to get you started.
 *   **Q: Can I use this to host other services?**
     A: Yes, the guide includes an optional section on how to configure Nginx as a reverse proxy to run services like n8n alongside your website.
 *   **Q: What technologies does this guide cover?**
     A: This guide focuses on web server configuration using Nginx, along with basic HTML/CSS and securing the site with SSL certificates from Certbot.
-
-© 2024 Accaderi. All rights reserved.
 
 ---
 
@@ -887,12 +871,8 @@ This is a complete setup guide for self-hosting the n8n workflow automation plat
     A: The goal is to give you a private, self-hosted instance of n8n, giving you full control over your automation workflows.
 *   **Q: Why use Docker for this?**
     A: Using Docker makes the installation, setup, and maintenance of n8n much easier and more reliable through containerization.
-*   **Q: Is the setup secure?**
-    A: Yes, the guide emphasizes security by using UFW firewall rules and configuring Nginx with free SSL certificates from Let's Encrypt for encrypted HTTPS connections.
 *   **Q: What are the core technologies for this setup?**
     A: The core technologies are Docker for containerization, Nginx as a reverse proxy, and Certbot for SSL security, all running on a home server.
-
-© 2024 Accaderi. All rights reserved.
 
 ---
 
@@ -905,14 +885,10 @@ This project is a demonstration of a Chrome extension that integrates secure use
 ### Q&A Snapshot
 *   **Q: What does this Chrome extension do?**
     A: It's a sample extension that shows how to implement a secure user login system (Sign in with Google) and a payment system (using Stripe) within a browser extension.
-*   **Q: How does it manage user data?**
-    A: It uses Firebase Authentication for the sign-in process and the Firestore database to securely track user data and payment status in real-time.
 *   **Q: Who is this project for?**
     A: It is for developers who want to learn how to build professional Chrome extensions that require user accounts and payment capabilities.
 *   **Q: What technologies were used in this Chrome Extension?**
     A: The extension was built with JavaScript and the Chrome Extension APIs. It uses Firebase for authentication and database services, and the Stripe API for payment processing.
-
-© 2024 Accaderi. All rights reserved.
 
 ---
 
@@ -925,14 +901,10 @@ This project is an automated cryptocurrency trading bot that connects to a Binan
 ### Q&A Snapshot
 *   **Q: What does this trading bot do?**
     A: It automatically executes trades for Bitcoin and Ethereum on the Binance exchange based on a predefined technical analysis strategy.
-*   **Q: What is the trading strategy?**
-    A: The core strategy is based on the EMA (Exponential Moving Average) crossover, but it uses the ADX and Choppiness Index as filters to avoid trading in weak or non-trending markets.
 *   **Q: Does it include tools for testing?**
     A: Yes, the repository includes a Jupyter Notebook and Python scripts for backtesting the strategy on historical data to evaluate its performance and optimize its parameters.
 *   **Q: What technologies were used to build the Trading Bot?**
     A: The application was built with Python using the Django framework. It connects to the Binance API via WebSockets and uses Pandas for data analysis and Plotly.js for visualization.
-
-© 2024 Accaderi. All rights reserved.
 
 ---
 
@@ -947,12 +919,8 @@ This project is a powerful Python tool that scrapes data from real estate websit
     A: It automates the tedious process of collecting and analyzing real estate market data, providing valuable insights for investors, agents, and researchers through data visualization.
 *   **Q: How does it get the data?**
     A: It uses Selenium with `undetected_chromedriver` to perform web scraping on supported real estate websites, bypassing many anti-bot measures.
-*   **Q: What kind of visualizations can it create?**
-    A: It can create many interactive charts, including property distribution charts, price vs. rooms histograms, heatmaps, scatter plots, and geographical choropleth maps (if a Mapbox API key is provided).
 *   **Q: What technologies were used in the Real Estate Analyzer?**
     A: This is a web scraping tool built with Python. It uses the Flask framework for the web interface, Selenium for scraping, Pandas for data analysis, and Plotly for creating interactive charts.
-
-© 2024 Accaderi. All rights reserved.
 
 ---
 
@@ -960,37 +928,12 @@ This project is a powerful Python tool that scrapes data from real estate websit
 ## TSV to Postgres Database.
 
 ### Project Summary
-This project is a Python Jupyter Notebook script designed to efficiently upload very large TSV (Tab-Separated Values) files to a PostgreSQL database. It was created specifically for the IMDb public dataset but is adaptable for other large datasets. It uses chunking for memory efficiency and intelligently determines data types.
+This project is a Python Jupyter Notebook script designed to efficiently upload very large TSV (Tab-Separated Values) files to a PostgreSQL database. It was created specifically for the IMDb public dataset but is adaptable. It uses chunking for memory efficiency and intelligently determines data types.
 
 ### Q&A Snapshot
 *   **Q: What is the main challenge this script solves?**
     A: It solves the memory and performance issues associated with uploading huge data files (like the IMDb dataset) into a PostgreSQL database.
 *   **Q: How does it handle large files without running out of memory?**
     A: It processes files in manageable chunks. Instead of loading an entire file into memory, it reads and uploads the data piece by piece.
-*   **Q: What are its key features?**
-    A: Its features include memory-efficient unzipping, intelligent data type detection to optimize the database schema, chunked processing, and specialized enhancements for creating relationships and lookup tables for the IMDb dataset.
 *   **Q: What technologies were used in this script?**
     A: This project is a Python script designed to run in a Jupyter Notebook. It uses the Pandas library for data manipulation and SQLAlchemy for interacting with the PostgreSQL database.
-
-© 2024 Accaderi. All rights reserved.
-
----
-
-# Page: software/projects/ai/project9.html
-## RAG Chatbot with Gemini
-
-### Project Summary
-This project is the very chatbot application you are currently interacting with. It is a sophisticated, bilingual (English/Hungarian) assistant built with a RAG (Retrieval-Augmented Generation) architecture. Its purpose is to act as a knowledgeable team member, providing accurate, context-aware answers based on a curated knowledge base. The entire system is designed with a serverless backend for security and scalability, and a modern frontend for a seamless user experience.
-
-### Q&A Snapshot
-*   **Q: What is the RAG Chatbot with Gemini project?**
-    A: It is the application you are using right now. It's a custom-built AI assistant designed to provide information about our services and projects in a conversational way.
-
-*   **Q: What are the main features of this chatbot?**
-    A: The key features are its bilingual support (English/Hungarian), conversational memory to understand follow-up questions, an advanced RAG architecture to ensure factual answers, and interactive navigation buttons to guide users on the website.
-
-*   **Q: What technology does this chatbot use?**
-    A: The backend is a serverless Node.js function hosted on Vercel. It uses Google's Gemini models for language generation and understanding. The frontend is built with vanilla HTML, CSS, and JavaScript and runs securely in an iframe.
-
-*   **Q: How does its conversational memory work?**
-    A: It uses a "smart retrieval" pipeline. For follow-up questions, it first uses an LLM to rewrite the vague query (e.g., "tell me more") into a specific, standalone question based on the conversation history. This ensures the subsequent knowledge base search is highly accurate.
